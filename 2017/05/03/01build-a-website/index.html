@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="注册Github账号并创建repo 安装Homebrew套件管理器 安装Git版本管理工具 安装node.js 配置SSH key 安装Hexo 同步Hexo博客到Github">
+<meta name="description" content="注册Github账号并创建repo 安装Homebrew套件管理器 安装Git版本管理工具 安装node.js 配置SSH key 安装Hexo 同步Hexo博客到Github 域名购买并使用">
 <meta name="keywords" content="技术分享">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac搭建hexo博客 until申域">
 <meta property="og:url" content="http://yoursite.com/2017/05/03/01build-a-website/index.html">
 <meta property="og:site_name" content="IT’S MY LIFE">
-<meta property="og:description" content="注册Github账号并创建repo 安装Homebrew套件管理器 安装Git版本管理工具 安装node.js 配置SSH key 安装Hexo 同步Hexo博客到Github">
-<meta property="og:updated_time" content="2017-05-03T10:06:39.000Z">
+<meta property="og:description" content="注册Github账号并创建repo 安装Homebrew套件管理器 安装Git版本管理工具 安装node.js 配置SSH key 安装Hexo 同步Hexo博客到Github 域名购买并使用">
+<meta property="og:updated_time" content="2017-05-03T17:06:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac搭建hexo博客 until申域">
-<meta name="twitter:description" content="注册Github账号并创建repo 安装Homebrew套件管理器 安装Git版本管理工具 安装node.js 配置SSH key 安装Hexo 同步Hexo博客到Github">
+<meta name="twitter:description" content="注册Github账号并创建repo 安装Homebrew套件管理器 安装Git版本管理工具 安装node.js 配置SSH key 安装Hexo 同步Hexo博客到Github 域名购买并使用">
 
 
 
@@ -352,14 +352,23 @@
 <li>配置SSH key</li>
 <li>安装Hexo</li>
 <li>同步Hexo博客到Github</li>
+<li>域名购买并使用</li>
 </ol>
 <a id="more"></a>
 <p>第一到第七步 Go to: <a href="http://www.jianshu.com/p/fb0b0258362f" target="_blank" rel="external">tutorial</a><br>Mac搭建Hexo博客及NexT主题配置优化<br>小马哥在简书的文章，我按照该教程遇到了一系列恶心的问题，就此开篇</p>
-<h2 id="问题汇总"><a href="#问题汇总" class="headerlink" title="问题汇总"></a>问题汇总</h2><h3 id="Error-EACCES-permission-denied-问题"><a href="#Error-EACCES-permission-denied-问题" class="headerlink" title="Error: EACCES: permission denied 问题"></a>Error: EACCES: permission denied 问题</h3><p>解决方案：所有终端命令前 加上 sudo （管理员权限执行）</p>
-<h3 id="输入-sudo-hexo-deploy-还是出现-Permission-Denied-问题"><a href="#输入-sudo-hexo-deploy-还是出现-Permission-Denied-问题" class="headerlink" title="输入 sudo hexo deploy 还是出现 Permission Denied 问题"></a>输入 sudo hexo deploy 还是出现 Permission Denied 问题</h3><p>在输入 sudo hexo deploy 并出现了经典的 本地没有ssh 对应github 上面的 ssh的问题。也就是Permission Denied。对于该问题，为什么会出现permission denied，很明显就是没有ssh。这也是linux权限的问题。首先要使用hexo 必须使用sudo获取linux下的最高权限 ，sudo目录就是linux下的root，当你用 ssh-keygen -t rsa -C “xxx@xxx.com” 添加ssh的时候都是在自己的账户下添加的，而没有到root文件夹下去添加，所以sudo hexo deploy就会出现ssh不存在的permission denied问题。<br>解决方案：直接在root下添加ssh就可以解决这个问题。我们来一步一步的解决如何添加ssh到linux root目录下面。</p>
-<h4 id="1-在linux的root目录下创建ssh，加上sudo。"><a href="#1-在linux的root目录下创建ssh，加上sudo。" class="headerlink" title="1.在linux的root目录下创建ssh，加上sudo。"></a>1.在linux的root目录下创建ssh，加上sudo。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ssh-keygen -t rsa -C “xxx@xxx.com”</div></pre></td></tr></table></figure>
-<h4 id="2-然后利用cat命令打开在root目录下的ssh。"><a href="#2-然后利用cat命令打开在root目录下的ssh。" class="headerlink" title="2.然后利用cat命令打开在root目录下的ssh。"></a>2.然后利用cat命令打开在root目录下的ssh。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo cat /var/root/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<h4 id="3-在github上面进行ssh的粘贴"><a href="#3-在github上面进行ssh的粘贴" class="headerlink" title="3.在github上面进行ssh的粘贴"></a>3.在github上面进行ssh的粘贴</h4>
+<h1 id="问题汇总"><a href="#问题汇总" class="headerlink" title="问题汇总"></a>问题汇总</h1><h2 id="Error-EACCES-permission-denied-问题"><a href="#Error-EACCES-permission-denied-问题" class="headerlink" title="Error: EACCES: permission denied 问题"></a>Error: EACCES: permission denied 问题</h2><p>解决方案：所有终端命令前 加上 sudo （管理员权限执行）</p>
+<h2 id="输入-sudo-hexo-deploy-还是出现-Permission-Denied-问题"><a href="#输入-sudo-hexo-deploy-还是出现-Permission-Denied-问题" class="headerlink" title="输入 sudo hexo deploy 还是出现 Permission Denied 问题"></a>输入 sudo hexo deploy 还是出现 Permission Denied 问题</h2><p>在输入 sudo hexo deploy 并出现了经典的 本地没有ssh 对应github 上面的 ssh的问题。也就是Permission Denied。对于该问题，为什么会出现permission denied，很明显就是没有ssh。这也是linux权限的问题。首先要使用hexo 必须使用sudo获取linux下的最高权限 ，sudo目录就是linux下的root，当你用 ssh-keygen -t rsa -C “xxx@xxx.com” 添加ssh的时候都是在自己的账户下添加的，而没有到root文件夹下去添加，所以sudo hexo deploy就会出现ssh不存在的permission denied问题。<br>解决方案：直接在root下添加ssh就可以解决这个问题。我们来一步一步的解决如何添加ssh到linux root目录下面。</p>
+<h3 id="1-在linux的root目录下创建ssh，加上sudo。"><a href="#1-在linux的root目录下创建ssh，加上sudo。" class="headerlink" title="1.在linux的root目录下创建ssh，加上sudo。"></a>1.在linux的root目录下创建ssh，加上sudo。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ssh-keygen -t rsa -C “xxx@xxx.com”</div></pre></td></tr></table></figure>
+<h3 id="2-然后利用cat命令打开在root目录下的ssh。"><a href="#2-然后利用cat命令打开在root目录下的ssh。" class="headerlink" title="2.然后利用cat命令打开在root目录下的ssh。"></a>2.然后利用cat命令打开在root目录下的ssh。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo cat /var/root/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<h3 id="3-在github上面进行ssh的粘贴"><a href="#3-在github上面进行ssh的粘贴" class="headerlink" title="3.在github上面进行ssh的粘贴"></a>3.在github上面进行ssh的粘贴</h3><h1 id="域名购买并使用"><a href="#域名购买并使用" class="headerlink" title="域名购买并使用"></a>域名购买并使用</h1><p>前面七步已经搭建好了个人网站，以git作为服务器，ip地址为 xxx.github.io<br>当然，大家都会希望有一个自己的域名。</p>
+<h2 id="1-查找自建网站的-DNS-地址"><a href="#1-查找自建网站的-DNS-地址" class="headerlink" title="1.查找自建网站的 DNS 地址"></a>1.查找自建网站的 DNS 地址</h2><p>打开终端，ping自己的网站 ip 地址，查看 DNS 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ping xxx.github.io</div></pre></td></tr></table></figure></p>
+<h2 id="2-域名购买"><a href="#2-域名购买" class="headerlink" title="2.域名购买"></a>2.域名购买</h2><p>进入万网，选择域名并且购买。注册并通过支付宝购买，便捷。</p>
+<h2 id="3-解析域名"><a href="#3-解析域名" class="headerlink" title="3.解析域名"></a>3.解析域名</h2><p>进入个人账户的管理控制台，选择 域名与网站 - 域名，在当前页面找到自己购买的域名，点击后面的解析，找到记录类型为A的信息栏，修改其记录值为刚刚在终端所见的 DNS 地址。保存。此时在网址打开新买的域名还是出现 404错误，没有问题。</p>
+<h2 id="4-创建-CNAME"><a href="#4-创建-CNAME" class="headerlink" title="4.创建 CNAME"></a>4.创建 CNAME</h2><p>用终端打开网站根目录文件夹，在 source 文件夹下创建 CNAME 文件，文件里加上新买的域名地址。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> <span class="built_in">source</span></div><div class="line">vim CNAME</div></pre></td></tr></table></figure></p>
+<p>文件中写上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">www.XXXXX.XX</div></pre></td></tr></table></figure></p>
+<p>保存退出</p>
+<p>Over~ 奇迹发生了，这个时候新的域名就能打开自己的网站了</p>
+
       
     </div>
 
@@ -513,7 +522,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题汇总"><span class="nav-number">1.</span> <span class="nav-text">问题汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-EACCES-permission-denied-问题"><span class="nav-number">1.1.</span> <span class="nav-text">Error: EACCES: permission denied 问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-sudo-hexo-deploy-还是出现-Permission-Denied-问题"><span class="nav-number">1.2.</span> <span class="nav-text">输入 sudo hexo deploy 还是出现 Permission Denied 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在linux的root目录下创建ssh，加上sudo。"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.在linux的root目录下创建ssh，加上sudo。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-然后利用cat命令打开在root目录下的ssh。"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.然后利用cat命令打开在root目录下的ssh。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-在github上面进行ssh的粘贴"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.在github上面进行ssh的粘贴</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题汇总"><span class="nav-number">1.</span> <span class="nav-text">问题汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-EACCES-permission-denied-问题"><span class="nav-number">1.1.</span> <span class="nav-text">Error: EACCES: permission denied 问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入-sudo-hexo-deploy-还是出现-Permission-Denied-问题"><span class="nav-number">1.2.</span> <span class="nav-text">输入 sudo hexo deploy 还是出现 Permission Denied 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-在linux的root目录下创建ssh，加上sudo。"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.在linux的root目录下创建ssh，加上sudo。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-然后利用cat命令打开在root目录下的ssh。"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.然后利用cat命令打开在root目录下的ssh。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在github上面进行ssh的粘贴"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.在github上面进行ssh的粘贴</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#域名购买并使用"><span class="nav-number">2.</span> <span class="nav-text">域名购买并使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-查找自建网站的-DNS-地址"><span class="nav-number">2.1.</span> <span class="nav-text">1.查找自建网站的 DNS 地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-域名购买"><span class="nav-number">2.2.</span> <span class="nav-text">2.域名购买</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-解析域名"><span class="nav-number">2.3.</span> <span class="nav-text">3.解析域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-创建-CNAME"><span class="nav-number">2.4.</span> <span class="nav-text">4.创建 CNAME</span></a></li></ol></li></ol></div>
             
 
           </div>
