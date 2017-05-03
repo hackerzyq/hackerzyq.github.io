@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="技术分享," />
 
 
 
@@ -90,15 +90,17 @@
 
 
 
-<meta name="description" content="什么是精致，在死亡的恐惧下惊不起一丝波澜">
-<meta property="og:type" content="website">
-<meta property="og:title" content="IT’S MY LIFE">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="注册Github账号并创建repo 安装Homebrew套件管理器 安装Git版本管理工具 安装node.js 配置SSH key 安装Hexo 同步Hexo博客到Github">
+<meta name="keywords" content="技术分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac搭建hexo博客 until申域">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/01build-a-website/index.html">
 <meta property="og:site_name" content="IT’S MY LIFE">
-<meta property="og:description" content="什么是精致，在死亡的恐惧下惊不起一丝波澜">
+<meta property="og:description" content="注册Github账号并创建repo 安装Homebrew套件管理器 安装Git版本管理工具 安装node.js 配置SSH key 安装Hexo 同步Hexo博客到Github">
+<meta property="og:updated_time" content="2017-05-03T10:06:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IT’S MY LIFE">
-<meta name="twitter:description" content="什么是精致，在死亡的恐惧下惊不起一丝波澜">
+<meta name="twitter:title" content="Mac搭建hexo博客 until申域">
+<meta name="twitter:description" content="注册Github账号并创建repo 安装Homebrew套件管理器 安装Git版本管理工具 安装node.js 配置SSH key 安装Hexo 同步Hexo博客到Github">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/03/01build-a-website/"/>
 
 
 
 
 
-  <title>IT’S MY LIFE</title>
+  <title>Mac搭建hexo博客 until申域 | IT’S MY LIFE</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -157,9 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,9 +262,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -294,10 +294,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/05/03/01build-a-website/" itemprop="url">
-                  Mac搭建hexo博客 until申域
-                </a>
+                Mac搭建hexo博客 until申域
               
             
           </h1>
@@ -347,8 +344,7 @@
       
 
       
-        
-          <ol>
+        <ol>
 <li>注册Github账号并创建repo</li>
 <li>安装Homebrew套件管理器</li>
 <li>安装Git版本管理工具</li>
@@ -357,48 +353,63 @@
 <li>安装Hexo</li>
 <li>同步Hexo博客到Github</li>
 </ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/03/01build-a-website/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<a id="more"></a>
+<p>第一到第七步 Go to: <a href="http://www.jianshu.com/p/fb0b0258362f" target="_blank" rel="external">tutorial</a><br>Mac搭建Hexo博客及NexT主题配置优化<br>小马哥在简书的文章，我按照该教程遇到了一系列恶心的问题，就此开篇</p>
+<h2 id="问题汇总"><a href="#问题汇总" class="headerlink" title="问题汇总"></a>问题汇总</h2><h3 id="Error-EACCES-permission-denied-问题"><a href="#Error-EACCES-permission-denied-问题" class="headerlink" title="Error: EACCES: permission denied 问题"></a>Error: EACCES: permission denied 问题</h3><p>解决方案：所有终端命令前 加上 sudo （管理员权限执行）</p>
+<h3 id="输入-sudo-hexo-deploy-还是出现-Permission-Denied-问题"><a href="#输入-sudo-hexo-deploy-还是出现-Permission-Denied-问题" class="headerlink" title="输入 sudo hexo deploy 还是出现 Permission Denied 问题"></a>输入 sudo hexo deploy 还是出现 Permission Denied 问题</h3><p>在输入 sudo hexo deploy 并出现了经典的 本地没有ssh 对应github 上面的 ssh的问题。也就是Permission Denied。对于该问题，为什么会出现permission denied，很明显就是没有ssh。这也是linux权限的问题。首先要使用hexo 必须使用sudo获取linux下的最高权限 ，sudo目录就是linux下的root，当你用 ssh-keygen -t rsa -C “xxx@xxx.com” 添加ssh的时候都是在自己的账户下添加的，而没有到root文件夹下去添加，所以sudo hexo deploy就会出现ssh不存在的permission denied问题。<br>解决方案：直接在root下添加ssh就可以解决这个问题。我们来一步一步的解决如何添加ssh到linux root目录下面。</p>
+<h4 id="1-在linux的root目录下创建ssh，加上sudo。"><a href="#1-在linux的root目录下创建ssh，加上sudo。" class="headerlink" title="1.在linux的root目录下创建ssh，加上sudo。"></a>1.在linux的root目录下创建ssh，加上sudo。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ssh-keygen -t rsa -C “xxx@xxx.com”</div></pre></td></tr></table></figure>
+<h4 id="2-然后利用cat命令打开在root目录下的ssh。"><a href="#2-然后利用cat命令打开在root目录下的ssh。" class="headerlink" title="2.然后利用cat命令打开在root目录下的ssh。"></a>2.然后利用cat命令打开在root目录下的ssh。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo cat /var/root/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<h4 id="3-在github上面进行ssh的粘贴"><a href="#3-在github上面进行ssh的粘贴" class="headerlink" title="3.在github上面进行ssh的粘贴"></a>3.在github上面进行ssh的粘贴</h4>
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/技术分享/" rel="tag"># 技术分享</a>
+          
+        </div>
+      
+
+      
+        
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -406,6 +417,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -425,8 +440,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/icon1.jpg"
@@ -479,6 +503,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题汇总"><span class="nav-number">1.</span> <span class="nav-text">问题汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-EACCES-permission-denied-问题"><span class="nav-number">1.1.</span> <span class="nav-text">Error: EACCES: permission denied 问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-sudo-hexo-deploy-还是出现-Permission-Denied-问题"><span class="nav-number">1.2.</span> <span class="nav-text">输入 sudo hexo deploy 还是出现 Permission Denied 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在linux的root目录下创建ssh，加上sudo。"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.在linux的root目录下创建ssh，加上sudo。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-然后利用cat命令打开在root目录下的ssh。"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.然后利用cat命令打开在root目录下的ssh。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-在github上面进行ssh的粘贴"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.在github上面进行ssh的粘贴</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -592,6 +632,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
