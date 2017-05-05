@@ -103,7 +103,7 @@
 <meta property="og:url" content="http://yoursite.com/2030/05/03/01build-a-website/index.html">
 <meta property="og:site_name" content="IT’S MY LIFE">
 <meta property="og:description" content="注册Github账号并创建repo 安装Homebrew套件管理器 安装Git版本管理工具 安装node.js 配置SSH key 安装Hexo 同步Hexo博客到Github 域名购买并使用">
-<meta property="og:updated_time" content="2017-05-04T02:36:13.000Z">
+<meta property="og:updated_time" content="2017-05-04T09:01:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac搭建hexo博客 until申域">
 <meta name="twitter:description" content="注册Github账号并创建repo 安装Homebrew套件管理器 安装Git版本管理工具 安装node.js 配置SSH key 安装Hexo 同步Hexo博客到Github 域名购买并使用">
@@ -370,7 +370,7 @@
 <h2 id="1-查找自建网站的-DNS-地址"><a href="#1-查找自建网站的-DNS-地址" class="headerlink" title="1.查找自建网站的 DNS 地址"></a>1.查找自建网站的 DNS 地址</h2><p>打开终端，ping自己的网站 ip 地址，查看 DNS 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ping xxx.github.io</div></pre></td></tr></table></figure></p>
 <h2 id="2-域名购买"><a href="#2-域名购买" class="headerlink" title="2.域名购买"></a>2.域名购买</h2><p>进入万网，选择域名并且购买。注册并通过支付宝购买，便捷。</p>
 <h2 id="3-解析域名"><a href="#3-解析域名" class="headerlink" title="3.解析域名"></a>3.解析域名</h2><p>进入个人账户的管理控制台，选择 域名与网站 - 域名，在当前页面找到自己购买的域名，点击后面的解析，找到记录类型为A的信息栏，修改其记录值为刚刚在终端所见的 DNS 地址。保存。此时在网址打开新买的域名还是出现 404错误，没有问题。</p>
-<h2 id="4-创建-CNAME"><a href="#4-创建-CNAME" class="headerlink" title="4.创建 CNAME"></a>4.创建 CNAME</h2><p>用终端打开网站根目录文件夹，在 source 文件夹下创建 CNAME 文件，文件里加上新买的域名地址。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> <span class="built_in">source</span></div><div class="line">vim CNAME</div></pre></td></tr></table></figure></p>
+<h2 id="4-创建-CNAME"><a href="#4-创建-CNAME" class="headerlink" title="4.创建 CNAME"></a>4.创建 CNAME</h2><p>CNAME文件设置的目的是，通过访问 MyGithub.github.io 可以跳转到你所注册的域名上。<br>用终端打开网站根目录文件夹，在 source 文件夹下创建 CNAME 文件，文件里加上新买的域名地址。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> <span class="built_in">source</span></div><div class="line">vim CNAME</div></pre></td></tr></table></figure></p>
 <p>文件中写上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">www.XXXXX.XX</div></pre></td></tr></table></figure></p>
 <p>保存退出</p>
 <p>Over~ 奇迹发生了，这个时候新的域名就能打开自己的网站了</p>
@@ -470,6 +470,8 @@
 
           
   <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODUwOC81MDc5"></div>
     
   </div>
 
@@ -752,6 +754,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
